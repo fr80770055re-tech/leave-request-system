@@ -1,0 +1,266 @@
+:root {
+  --primary: #2f6fed;
+  --primary-dark: #1e56c4;
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: #e0e3ea;
+  --error: #d9453d;
+  --success: #1f9d55;
+  --warning: #b45309;
+  --warning-bg: #fff7e6;
+  --warning-border: #f2c675;
+  --radius: 14px;
+  --tap-size: 48px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 明體風格・加粗：思源宋體（Noto Serif TC）Bold，帶襯線、筆畫粗細有變化，質感較正式 */
+body {
+  margin: 0;
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", "Microsoft JhengHei", serif;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* 手機優先版面：預設為單欄、大留白、易點擊，桌面版另用 min-width 加寬 */
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 16px calc(40px + env(safe-area-inset-bottom));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.warning-banner {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: var(--warning);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: var(--error);
+}
+
+select,
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  min-height: var(--tap-size);
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font-family: inherit;
+}
+
+select:disabled {
+  background: #f0f1f4;
+  color: var(--muted);
+}
+
+textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.15);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin: -10px 0 18px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap-size);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f8f9fc;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkbox-option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 88px;
+  min-height: var(--tap-size);
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+}
+
+.radio-option input {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.radio-option:has(input:checked) {
+  border-color: var(--primary);
+  background: rgba(47, 111, 237, 0.08);
+  color: var(--primary-dark);
+}
+
+button[type="submit"] {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+button[type="submit"]:active {
+  background: var(--primary-dark);
+}
+
+button[type="submit"]:disabled {
+  background: #a9bce8;
+  cursor: not-allowed;
+}
+
+.field-error {
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.banner {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.banner.success {
+  background: rgba(31, 157, 85, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(31, 157, 85, 0.3);
+}
+
+.banner.error {
+  background: rgba(217, 69, 61, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(217, 69, 61, 0.3);
+}
+
+.page-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+/* 桌面 / 平板加強：手機版面已滿足主要使用情境，較寬螢幕時加大留白 */
+@media (min-width: 640px) {
+  .page {
+    max-width: 560px;
+    padding-top: 32px;
+  }
+
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 24px 26px;
+  }
+}

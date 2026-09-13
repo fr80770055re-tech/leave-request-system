@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<title>家長線上請假系統</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <h1>家長線上請假登記</h1>
+      <p class="subtitle">送出後即完成登記，系統將自動通知班級群組</p>
+    </header>
+
+    <main class="card">
+      <div class="warning-banner">⚠️ 非特殊情形請假者，恕難進行完整補課！</div>
+
+      <form id="leaveForm" novalidate>
+
+        <div class="field">
+          <label for="classSelect">班級 <span class="required">*</span></label>
+          <select id="classSelect" required>
+            <option value="" disabled selected>請選擇班級</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="studentSelect">學生姓名 <span class="required">*</span></label>
+          <select id="studentSelect" required disabled>
+            <option value="" disabled selected>請先選擇班級</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="leaveType">假別 <span class="required">*</span></label>
+          <select id="leaveType" required>
+            <option value="" disabled selected>請選擇假別</option>
+            <option value="事假">事假</option>
+            <option value="病假">病假</option>
+            <option value="喪假">喪假</option>
+            <option value="公假">公假</option>
+            <option value="生理假">生理假</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+
+        <div class="field" id="otherReasonField" hidden>
+          <label for="otherReason">其他假別說明 <span class="required">*</span></label>
+          <input type="text" id="otherReason" placeholder="請說明假別">
+        </div>
+
+        <div class="field">
+          <label for="startDate"><span id="startDateLabel">請假日期</span> <span class="required">*</span></label>
+          <input type="date" id="startDate" required>
+        </div>
+
+        <div class="field">
+          <label class="checkbox-option">
+            <input type="checkbox" id="sameDayCheckbox" checked>
+            <span>單日請假（結束日期同開始日期）</span>
+          </label>
+        </div>
+
+        <div class="field" id="endDateField" hidden>
+          <label for="endDate">結束日期 <span class="required">*</span></label>
+          <input type="date" id="endDate">
+        </div>
+        <p class="hint">可選擇過去日期進行補登請假；結束日期不可早於開始日期。</p>
+
+        <div class="field">
+          <label>時段 <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="period" value="全天" checked>
+              <span>全天</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="period" value="上午">
+              <span>上午</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="period" value="下午">
+              <span>下午</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="reason">事由 <span class="required">*</span></label>
+          <textarea id="reason" rows="3" placeholder="請簡述請假原因" required></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">送出請假申請</button>
+      </form>
+
+      <div id="resultBanner" class="banner" hidden></div>
+    </main>
+
+    <footer class="page-footer">
+      <p>如系統操作有問題，請直接聯繫導師。</p>
+    </footer>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
