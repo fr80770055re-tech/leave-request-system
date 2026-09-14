@@ -1,11 +1,13 @@
 :root {
-  --primary: #2f6fed;
-  --primary-dark: #1e56c4;
-  --bg: #f4f6fb;
+  --primary: #1d77b5;
+  --primary-dark: #145d91;
+  --pastel-dot: #bfe3fb;
+  --pastel-soft: #eaf6ff;
+  --bg: #eaf6ff;
   --card-bg: #ffffff;
   --text: #1f2430;
   --muted: #6b7280;
-  --border: #e0e3ea;
+  --border: #cfe7f7;
   --error: #d9453d;
   --success: #1f9d55;
   --warning: #b45309;
@@ -29,9 +31,14 @@ body {
   margin: 0;
   font-family: "Noto Serif TC", "Songti TC", "PMingLiU", "Microsoft JhengHei", serif;
   font-weight: 700;
-  background: var(--bg);
   color: var(--text);
   line-height: 1.5;
+  background-color: var(--bg);
+  /* 粉藍點點底紋：兩層錯位的圓點，營造繽紛可愛的感覺 */
+  background-image: radial-gradient(circle, var(--pastel-dot) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--pastel-dot) 3px, transparent 3.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
 }
 
 /* 手機優先版面：預設為單欄、大留白、易點擊，桌面版另用 min-width 加寬 */
@@ -60,11 +67,42 @@ body {
   margin: 0;
 }
 
+.dot-divider {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot-divider span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot-color, var(--primary));
+}
+
+.dot-divider span:nth-child(1) {
+  --dot-color: #6fb8e8;
+}
+
+.dot-divider span:nth-child(2) {
+  --dot-color: #3aa0e0;
+}
+
+.dot-divider span:nth-child(3) {
+  --dot-color: #1d77b5;
+}
+
+.dot-divider span:nth-child(4) {
+  --dot-color: #7fd0d8;
+}
+
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
   padding: 18px 16px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(29, 119, 181, 0.12);
+  border: 1px solid var(--pastel-soft);
 }
 
 .warning-banner {
@@ -110,7 +148,7 @@ textarea {
 }
 
 select:disabled {
-  background: #f0f1f4;
+  background: #eef6fb;
   color: var(--muted);
 }
 
@@ -124,7 +162,7 @@ input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.15);
+  box-shadow: 0 0 0 3px rgba(29, 119, 181, 0.15);
 }
 
 .hint {
@@ -141,7 +179,7 @@ textarea:focus {
   padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #f8f9fc;
+  background: var(--pastel-soft);
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -188,7 +226,7 @@ textarea:focus {
 
 .radio-option:has(input:checked) {
   border-color: var(--primary);
-  background: rgba(47, 111, 237, 0.08);
+  background: rgba(29, 119, 181, 0.1);
   color: var(--primary-dark);
 }
 
@@ -212,7 +250,7 @@ button[type="submit"]:active {
 }
 
 button[type="submit"]:disabled {
-  background: #a9bce8;
+  background: #a8cfe6;
   cursor: not-allowed;
 }
 

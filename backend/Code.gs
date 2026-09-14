@@ -210,13 +210,19 @@ function buildLineMessageText(record) {
     record.period +
     "）" +
     "\n事由：" +
-    record.reason
+    record.reason +
+    "\n送出時間：" +
+    formatDateTime(record.submittedAt)
   );
 }
 
 function formatDate(dateStr) {
   const d = new Date(dateStr);
   return Utilities.formatDate(d, "Asia/Taipei", "yyyy/MM/dd");
+}
+
+function formatDateTime(date) {
+  return Utilities.formatDate(date, "Asia/Taipei", "yyyy/MM/dd HH:mm");
 }
 
 function pushLineMessage(groupId, messageText) {
